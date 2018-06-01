@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" MinHeight="400" Width="525" MinWidth="525">
 
-    <Canvas x:Name="myCanvas" Margin="259,185,109.4,35.4">
+    <Canvas x:Name="myCanvas" Height="150" Width="150" Background="Blue" Margin="259,185,109.4,35.4">
         <TextBox 
             x:Name="txbInputA"
             Height="65" 
