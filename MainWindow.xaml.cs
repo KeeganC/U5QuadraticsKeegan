@@ -26,31 +26,52 @@ namespace Drawing
     /// </summary>
     public partial class MainWindow : Window
     {
+        double a, b, c, topP, topS, sqRtPre, sqRtPost, bottom, rootP, rootS, vertexX, vertexY;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-            //Create the path with the geometry
+        private void btnGo_Click(object sender, RoutedEventArgs e)
+        {
+            a = Convert.ToDouble(txbInputA.Text);
+            b = Convert.ToDouble(txbInputB.Text);
+            c = Convert.ToDouble(txbInputC.Text);
+
+            sqRtPre = (b*b)-(4*a*c);
+            sqRtPost = Math.Sqrt(sqRtPre);
+            topP = (b * (-1)) + sqRtPost;
+            topS = (b * (-1)) - sqRtPost;
+            bottom = 2 * a;
+            rootP = topP / bottom;
+            rootS = topS / bottom;
+
+            vertexX = (rootS + rootP) / 2;
+            vertexY = a * (vertexX * vertexX) + b * vertexX + c;
+
+            txbOutput.Text = "Entered value for a: "+ txbInputA.Text +"\r\nEntered value for b: "+ txbInputB.Text +"\r\nEntered value for c: "+ txbInputC.Text +"\r\nThe roots are "+ rootP.ToString() + " and " + rootS.ToString();
+
+            //draw parabola
             Path p = new Path();
-            p.Stroke = Brushes.Red;
-            p.StrokeThickness = 15;
+            p.Stroke = Brushes.Blue;
+            p.StrokeThickness = 5;
             PathGeometry pg = new PathGeometry();
             PathFigureCollection pfg = new PathFigureCollection();
             PathFigure pathFigure = new PathFigure();
-            pathFigure.StartPoint = new Point(10, 100);
+            pathFigure.StartPoint = new Point(rootP*15, 0);
             pathFigure.Segments = new PathSegmentCollection();
 
             QuadraticBezierSegment quadraticBezierSegment = new QuadraticBezierSegment();
-            quadraticBezierSegment.Point1 = new Point(150, 500);
-            quadraticBezierSegment.Point2 = new Point(700, 100);
-            //everything gets put together
+            quadraticBezierSegment.Point1 = new Point(vertexX*15, -(vertexY*15));
+            quadraticBezierSegment.Point2 = new Point(rootS*15, 0);
+
             pathFigure.Segments.Add(quadraticBezierSegment);
+
             pfg.Add(pathFigure);
             pg.Figures = pfg;
             p.Data = pg;
-            //add it to the canvas - xaml has a Canvas with the x:Name canvas
-            canvas.Children.Add(p);
-
+            myCanvas.Children.Add(p);
         }
     }
 }
