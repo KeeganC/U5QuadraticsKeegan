@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Keegan Chan
  * U5QuadraticsKeegan
  * May 31, 2018
@@ -59,7 +59,6 @@ namespace Drawing
             myCanvas.Children.Clear();
 
             drawGrid();
-
             a = Convert.ToDouble(txbInputA.Text);
             b = Convert.ToDouble(txbInputB.Text);
             c = Convert.ToDouble(txbInputC.Text);
@@ -97,11 +96,18 @@ namespace Drawing
                 end2x = topS / bottom;
             }
 
-            xVariable = end1x;
+            if (end1x >= -10)
+            {
+                xVariable = end1x;
+            }
+            else if (end1x < -10)
+            {
+                xVariable = -10;
+            }
 
             txbOutput.Text = "Entered value for a: " + txbInputA.Text + "\r\nEntered value for b: " + txbInputB.Text + "\r\nEntered value for c: " + txbInputC.Text + "\r\nThe roots are " + rootP.ToString() + " and " + rootS.ToString();
 
-            while (xVariable <= end2x)
+            while (xVariable <= end2x && xVariable <= 10)
             {
                 Line line = new Line();
                 line.Stroke = Brushes.Blue;
@@ -121,7 +127,7 @@ namespace Drawing
             }
 
             //reset x values
-            xVariable = end1x -0.1;
+            xVariable = end1x;
         }
 
         private void drawGrid()

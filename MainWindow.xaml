@@ -1,4 +1,4 @@
-<Window x:Class="Drawing.MainWindow"
+﻿<Window x:Class="Drawing.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,35 +10,45 @@
         <TextBox 
             x:Name="txbInputA"
             Height="65" 
-            Canvas.Left="-80" 
+            Canvas.Left="-99" 
             TextWrapping="Wrap" 
             Text="a"
-            FontSize="40"
-            Canvas.Top="19" 
+            FontSize="37"
+            Canvas.Top="22" 
             Width="70" 
-            TextAlignment="Center"/>
+            TextAlignment="Center"
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"
+            MaxLines="1"/>
 
         <TextBox 
             x:Name="txbInputB"
             Height="65" 
-            Canvas.Left="-80" 
+            Canvas.Left="-99" 
             TextWrapping="Wrap" 
             Text="b" 
-            FontSize="40"
-            Canvas.Top="107" 
+            FontSize="37"
+            Canvas.Top="106" 
             Width="70"
-            TextAlignment="Center"/>
+            TextAlignment="Center" 
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"
+            MaxLines="1"/>
 
         <TextBox 
             x:Name="txbInputC"
             Height="65" 
-            Canvas.Left="-80" 
+            Canvas.Left="-99" 
             TextWrapping="Wrap" 
             Text="c" 
-            FontSize="40"
+            FontSize="37"
             Canvas.Top="189" 
             Width="70"
-            TextAlignment="Center"/>
+            TextAlignment="Center"
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"
+            MaxLines="1"/>
+        
         <TextBox 
             x:Name="txbOutput"
             Height="291" 
@@ -52,11 +62,31 @@
             x:Name="btnGo"
             Content="Go" 
             Height="26" 
-            Canvas.Left="-80" 
+            Canvas.Left="-99" 
             Canvas.Top="270" 
             Width="70"
             Click="btnGo_Click"/>
         <Canvas x:Name="myCanvas" Height="150" Width="150" Background="AliceBlue" Canvas.Left="150" Canvas.Top="150">
         </Canvas>
+        <Label 
+            Content="-10 -9 -8  -7 -6  -5  -4 -3  -2  -1  0   1   2   3   4   5   6   7   8   9  10" 
+            FontSize="11"
+            Height="28" 
+            Canvas.Top="296" 
+            Width="327" 
+            Canvas.Left="-16"/>
+        <TextBox 
+            Height="315" 
+            Canvas.Left="-24" 
+            TextWrapping="Wrap" 
+            BorderThickness="0"
+            Text="10   9    8    7    6    5    4    3    2    1    0    -1     -2     -3     -4     -5     -6     -7     -8     -9     -10" 
+            FontSize="11.25"
+            Canvas.Top="-9" 
+            Width="26" 
+            Background="Transparent"
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"/>
+
     </Canvas>
 </Window>
